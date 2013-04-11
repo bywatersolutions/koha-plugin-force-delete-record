@@ -1,0 +1,36 @@
+[% INCLUDE 'doc-head-open.inc' %]
+ <title>Koha: Plugin: Force delete record</title>
+ <script type="text/javascript" src="[% PLUGIN_PATH %]/datepicker/js/datepicker.js"></script>
+ <link href="[% PLUGIN_PATH %]/datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+[% INCLUDE 'doc-head-close.inc' %]
+</head>
+<body>
+[% INCLUDE 'header.inc' %]
+[% INCLUDE 'cat-search.inc' %]
+
+<div id="breadcrumbs"><a href="/cgi-bin/koha/mainpage.pl">Home</a> &rsaquo; <a href="/cgi-bin/koha/plugins/plugins-home.pl">Plugins</a> &rsaquo; Force delete record</div>
+
+<div id="doc3">
+    <a href="http://bywatersolutions.com" target="_blank"><img src="[% PLUGIN_PATH %]/logo.png" /></a>
+    <h3>Force delete record - check record</h3>
+
+    [% IF record %]
+        <p>Verify this is the record you wish to delete. <strong>This action cannot be undone.</strong></p>
+
+        <form method="get">
+            <input type="hidden" name="class" value="[% CLASS %]"/>
+            <input type="hidden" name="method" value="[% METHOD %]"/>
+            <input type="hidden" name="next_step" value="3"/>
+            <input type="hidden" name="biblionumber" value="[% record.biblionumber %]"/>
+
+            <p><strong>Title:</strong> [% record.title %]</p>
+            <p><strong>Author:</strong> [% record.author %]</p>
+
+            <p><input type="submit" value="Delete record" onclick="return confirm('Are you sure you want to delete this record?')"/></p>
+
+        </form>
+    [% ELSE %]
+        No record exists for the given biblionumber.
+    [% END %]
+
+[% INCLUDE 'intranet-bottom.inc' %]

@@ -1,0 +1,33 @@
+[% INCLUDE 'doc-head-open.inc' %]
+ <title>Koha: Plugin: Force delete record</title>
+ <script type="text/javascript" src="[% PLUGIN_PATH %]/datepicker/js/datepicker.js"></script>
+ <link href="[% PLUGIN_PATH %]/datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+[% INCLUDE 'doc-head-close.inc' %]
+</head>
+<body>
+[% INCLUDE 'header.inc' %]
+[% INCLUDE 'cat-search.inc' %]
+
+<div id="breadcrumbs"><a href="/cgi-bin/koha/mainpage.pl">Home</a> &rsaquo; <a href="/cgi-bin/koha/plugins/plugins-home.pl">Plugins</a> &rsaquo; Force delete record</div>
+
+<div id="doc3">
+    <a href="http://bywatersolutions.com" target="_blank"><img src="[% PLUGIN_PATH %]/logo.png" /></a>
+    <h3>Force delete record</h3>
+
+    <p>This tool will forcefully and irreversably delete the record you specify.</p>
+
+	<form method="get">
+        <input type="hidden" name="class" value="[% CLASS %]"/>
+        <input type="hidden" name="method" value="[% METHOD %]"/>
+        <input type="hidden" name="next_step" value="2"/>
+
+        <p>
+            <label for="biblionumber">Biblionumber: </label>
+            <input type="text" name="biblionumber"/>
+        </p>
+
+		<p><input type="submit" value="Look up record" /></p>
+
+	</form>
+
+[% INCLUDE 'intranet-bottom.inc' %]
